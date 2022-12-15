@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Zoo {
 
-    public static HashMap<String, Animal> animals = new HashMap();
+    public static HashMap<String, Animal> animals = new HashMap<>();
     public static void main(String[] args) {
 
         boolean running = true;
