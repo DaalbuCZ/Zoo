@@ -90,6 +90,7 @@ public class Zoo {
                 return;
             }
         }
+        System.out.println("Zvíře bylo úspěšně přidáno!");
     }
 
     public static void lookupAnimal(){
@@ -122,7 +123,7 @@ public class Zoo {
         System.out.println("Napiš jméno zvířete, které má být smazáno:");
         String name = scanner.nextLine();
 
-            animals.remove(name);
+            animals.remove(name.toLowerCase());
             System.out.println("Úspěšně jste vymazali " + name + "!");
 
     }
