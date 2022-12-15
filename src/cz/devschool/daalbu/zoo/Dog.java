@@ -16,5 +16,7 @@ public class Dog extends Animal{
         }
     }
 
-
+    public boolean isHuntingMood() {
+        return isHuntingMood;
+    }
 }
