@@ -1,8 +1,6 @@
 package cz.devschool.daalbu.zoo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Zoo {
@@ -39,9 +37,6 @@ public class Zoo {
                 }
             }
         }
-
-
-
     }
 
     public static void menu(){
@@ -55,51 +50,44 @@ public class Zoo {
 
     public static void  newAnimal(){
         Scanner scanner = new Scanner(System.in);
-        boolean input = true;
 
-        while(input){
-            System.out.println("Vyber typ zvířete (Kočka, Pes, Slon):");
-            String animal = scanner.nextLine();
-            animal.toLowerCase();
-            System.out.println("Napiš jméno zvířete:");
-            String name = scanner.nextLine();
-            System.out.println("Napiš věk zvířete:");
-            int age = scanner.nextInt();
-            System.out.println("Napiš váhu zvířete");
-            double weight = scanner.nextDouble();
+        System.out.println("Vyber typ zvířete (Kočka, Pes, Slon):");
+        String animal = scanner.nextLine();
+        System.out.println("Napiš jméno zvířete:");
+        String name = scanner.nextLine();
+        System.out.println("Napiš věk zvířete:");
+        int age = scanner.nextInt();
+        System.out.println("Napiš váhu zvířete");
+        double weight = scanner.nextDouble();
 
-            switch (animal) {
-                case "kocka", "kočka": {
-                    System.out.println("Spí kočka (true/false):");
-                    boolean isSleeping = scanner.nextBoolean();
+        switch (animal.toLowerCase()) {
+            case "kocka", "kočka": {
+                System.out.println("Spí kočka (true/false):");
+                boolean isSleeping = scanner.nextBoolean();
 
-                    Cat cat = new Cat(name, age, weight,isSleeping);
-                    animals.put(name.toLowerCase(), cat);
+                Cat cat = new Cat(name, age, weight,isSleeping);
+                animals.put(name.toLowerCase(), cat);
 
-                    input = false;
-                    break;
-                }
-                case "pes": {
-                    System.out.println("Je pes v lovící náladě(true/false):");
-                    boolean isHuntingMood = scanner.nextBoolean();
+                break;
+            }
+            case "pes": {
+                System.out.println("Je pes v lovecké náladě(true/false):");
+                boolean isHuntingMood = scanner.nextBoolean();
 
-                    Dog dog = new Dog(name, age, weight,isHuntingMood);
-                    animals.put(name.toLowerCase(), dog);
+                Dog dog = new Dog(name, age, weight,isHuntingMood);
+                animals.put(name.toLowerCase(), dog);
 
-                    input = false;
-                    break;
-                }
-                case "slon": {
-                    Elephant elephant = new Elephant(name, age, weight);
-                    animals.put(name.toLowerCase(), elephant);
+                break;
+            }
+            case "slon": {
+                Elephant elephant = new Elephant(name, age, weight);
+                animals.put(name.toLowerCase(), elephant);
 
-                    input = false;
-                    break;
-                }
-                default:{
-                    System.out.println("Toto zvíře neznám! Zkus jiné zvíře.");
-                    return;
-                }
+                break;
+            }
+            default:{
+                System.out.println("Toto zvíře neznám! Zkus jiné zvíře.");
+                return;
             }
         }
     }
@@ -123,12 +111,19 @@ public class Zoo {
             }
             System.out.print("Zvuk: ");
             animal.makeSound();
-        }catch (java.lang.NullPointerException e){
+        } catch (java.lang.NullPointerException e){
             System.out.println("Toto zvíře není v databázi");
         }
 
     }
     public static void deleteAnimal(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Napiš jméno zvířete, které má být smazáno:");
+        String name = scanner.nextLine();
+
+            animals.remove(name);
+            System.out.println("Úspěšně jste vymazali " + name + "!");
 
     }
 }

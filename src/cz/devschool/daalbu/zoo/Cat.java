@@ -11,7 +11,7 @@ public class Cat extends Animal{
 
     @Override
     public void makeSound() {
-        if(isSleeping == true){
+        if(isSleeping){
             System.out.println("Chrrrr meow meow meow");
         }else{
             System.out.println("Meeooow");

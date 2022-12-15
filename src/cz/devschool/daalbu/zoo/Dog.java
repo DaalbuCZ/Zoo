@@ -9,7 +9,7 @@ public class Dog extends Animal{
 
     @Override
     public void makeSound() {
-        if(isHuntingMood == true){
+        if(isHuntingMood){
             System.out.println("Vrrrrrr Haf Haf");
         }else {
             System.out.println("Haf!");
